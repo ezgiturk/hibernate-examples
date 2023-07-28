@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--  Database connection settings  -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5442/postgres</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgres</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- Echo all executed SQL statements to console -->
+        <property name="show_sql">true</property>
+        <!--
+
+        <mapping class="org.example.models.Car"/>
+
+        <mapping class="org.example.models.mappingvalue.ornek1.Employee"/>
+        <mapping class="org.example.models.mappingvalue.ornek1.Gender"/>
+        <mapping class="org.example.models.mappingvalue.ornek1.Job"/>
+
+        <mapping class="org.example.models.mappingvalue.ornek2.Article"/>
+        <mapping class="org.example.models.mappingvalue.ornek2.Status"/>
+        <mapping class="org.example.models.mappingvalue.ornek2.Type"/>
+
+
+        <mapping class="org.example.models.collections.Staff"/>
+        <mapping class="org.example.models.collections.Person"/>
+        <mapping class="org.example.models.collections.Product"/>
+
+        <mapping class="org.example.relationships.onetoone.User"/>
+        <mapping class="org.example.relationships.onetoone.UserDetail"/>
+
+        <mapping class="org.example.models.relationships.onetoone.Capital"/>
+        <mapping class="org.example.models.relationships.onetoone.Country"/>
+
+        <mapping class="org.example.models.relationships.onetomany.Order"/>
+        <mapping class="org.example.models.relationships.onetomany.Customer"/>
+
+
+        <mapping class="org.example.models.relationships.onetomany.ornek2.Task"/>
+        <mapping class="org.example.models.relationships.onetomany.ornek2.Project"/>
+        <mapping class="org.example.models.relationships.onetomany.ornek2.ProjectStatus"/>
+
+        <mapping class="org.example.models.relationships.manytomany.Author"/>
+        <mapping class="org.example.models.relationships.manytomany.Book"/>
+
+
+        <mapping class="org.example.models.relationships.manytomany.ornek2.Course"/>
+        <mapping class="org.example.models.relationships.manytomany.ornek2.Student"/>
+
+        -->
+
+    </session-factory>
+</hibernate-configuration>
