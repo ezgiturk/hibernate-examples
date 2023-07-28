@@ -47,9 +47,9 @@ public class ProjectPersistenceTest {
 
         try(Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
-            session.persist(task);
-            session.persist(task2);
-            session.persist(task3);
+            //session.persist(task);
+            //session.persist(task2);
+            //session.persist(task3);
             session.persist(project);
             session.persist(project2);
             tx.commit();
