@@ -96,6 +96,32 @@ public class EmployeeLifeCyclePersistenceTest {
     }
 
     @Test
+    public void removePersistentEntity() {
+
+        Employee employee = new Employee("Ezgi", "TÜRKOKULOĞLU", Gender.FEMALE, Job.PROGRAMMER);
+        Employee employee2 = new Employee("Ezgi", "TÜRKOKULOĞLU", Gender.FEMALE, Job.PROGRAMMER);
+
+        try (Session session = factory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            session.persist(employee);
+            session.persist(employee2);
+            tx.commit();
+        }
+
+        try (Session session = factory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee s = session.find(Employee.class, employee.getId());
+            session.remove(s);
+            tx.commit();
+        }
+
+        try (Session session = factory.openSession()) {
+            Employee employeeFromDb = session.find(Employee.class, employee.getId());
+            assertNull(employeeFromDb);
+        }
+    }
+
+    @Test
     public void refreshEntityState() {
         String oldSurname = "TÜRKOKULOĞLU";
         Employee employee = new Employee("Ezgi", oldSurname, Gender.FEMALE, Job.PROGRAMMER);
