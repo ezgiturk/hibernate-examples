@@ -1,11 +1,17 @@
 package org.example.models.mappingvalue.ornek2;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
+@Getter
+@NoArgsConstructor
+@ToString
 @Entity
 public class Article {
 
@@ -30,30 +36,10 @@ public class Article {
     @UpdateTimestamp
     private Date lastModifiedDate;
 
-    public Article() {
-    }
-
     public Article(String title, Status status, Type type, String content) {
         this.title = title;
         this.status = status;
         this.type = type;
         this.content = content;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", status=" + status +
-                ", type=" + type +
-                ", content='" + content + '\'' +
-                ", creationDate=" + creationDate +
-                ", lastModifiedDate=" + lastModifiedDate +
-                '}';
     }
 }

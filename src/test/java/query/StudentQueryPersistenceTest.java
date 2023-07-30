@@ -70,9 +70,7 @@ public class StudentQueryPersistenceTest {
             list = session
                     .createQuery("SELECT s FROM Student s JOIN s.courses c WHERE c.name = 'Network'", Student.class)
                     .list();
-            for (Student student : list) {
-                System.out.println(student);
-            }
+            list.forEach(System.out::println);
         }
     }
 
@@ -85,9 +83,7 @@ public class StudentQueryPersistenceTest {
                     .createQuery("SELECT s FROM Student s JOIN s.courses c WHERE c.name = :courseName", Student.class)
                     .setParameter("courseName", "Network")
                     .list();
-            for (Student student : list) {
-                System.out.println(student);
-            }
+            list.forEach(System.out::println);
         }
     }
 }

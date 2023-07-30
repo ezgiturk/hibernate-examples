@@ -1,7 +1,13 @@
 package org.example.models.relationships.onetoone;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class Country {
 
@@ -13,17 +19,6 @@ public class Country {
 
     @OneToOne
     private Capital capital;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setCapital(Capital capital) {
-        this.capital = capital;
-    }
-
-    public Country() {
-    }
 
     public Country(String name) {
         this.name = name;

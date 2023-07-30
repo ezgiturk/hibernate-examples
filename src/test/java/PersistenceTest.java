@@ -8,6 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertNotNull;
+
 public class PersistenceTest {
 
     private SessionFactory factory = null;
@@ -26,10 +28,17 @@ public class PersistenceTest {
     @Test
     public void createCarTest() {
         Car car = new Car("type" , "model", "color");
+
         try(Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
             session.persist(car);
             tx.commit();
+        }
+
+        try(Session session = factory.openSession()) {
+            Car carFromDb = session.find(Car.class, car.getId());
+            assertNotNull(carFromDb.toString());
+            System.out.println(carFromDb);
         }
 
     }

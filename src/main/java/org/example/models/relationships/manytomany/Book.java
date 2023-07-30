@@ -1,13 +1,16 @@
 package org.example.models.relationships.manytomany;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@ToString
+@Getter
+@NoArgsConstructor
 @Entity(name = "Book")
 public class Book {
     @Id
@@ -16,30 +19,10 @@ public class Book {
 
     private String title;
 
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST)
     private Set<Author> authors = new HashSet<>();
-
-    public Book() {
-    }
 
     public Book(String title) {
         this.title = title;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Set<Author> getAuthors() {
-        return authors;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", authors=" + authors +
-                '}';
     }
 }

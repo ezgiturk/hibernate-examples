@@ -1,12 +1,13 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
+@Getter
 @ToString
 public class Car {
 
@@ -25,6 +26,5 @@ public class Car {
         this.model = model;
         this.color = color;
     }
-
 
 }

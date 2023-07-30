@@ -1,10 +1,14 @@
 package org.example.models.relationships.manytomany.ornek2;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@NoArgsConstructor
+@ToString
 @Entity
 public class Course {
 
@@ -22,22 +26,10 @@ public class Course {
     private Set<Student> students = new HashSet<>();
 
 
-    public Course() {
-    }
-
     public Course(String name, String instructor, int credit) {
         this.name = name;
         this.instructor = instructor;
         this.credit = credit;
     }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", instructor='" + instructor + '\'' +
-                ", credit=" + credit +
-                '}';
-    }
 }
