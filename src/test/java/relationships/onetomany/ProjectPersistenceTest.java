@@ -61,12 +61,16 @@ public class ProjectPersistenceTest {
             assertEquals(taskFromDb.getProject().getId(), project2.getId());
         }
 
+
+        Project projectFromDb;
         try(Session session = factory.openSession()) {
             System.out.println("----LAZY FETCH TEST START---");
-            Project projectFromDb = session.find(Project.class, project2.getId());
-            System.out.println("---LAZY FETCH---");
-            Set<Task> tasks = projectFromDb.getTasks();
-            tasks.stream().map(Task::toString).forEach(System.out::println);
+            projectFromDb = session.find(Project.class, project2.getId());
+            System.out.println("----LAZY FETCH TEST---");
+            System.out.println(projectFromDb.getTasks());
         }
+        //System.out.println(projectFromDb.getTasks());
+
+
     }
 }
