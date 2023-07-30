@@ -26,7 +26,7 @@ public class Customer {
 
     private String address;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Order> orders = new HashSet<>();
 
     public void addOrder(Order order) {
