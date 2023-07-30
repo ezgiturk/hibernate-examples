@@ -1,11 +1,19 @@
 package org.example.models.relationships.onetomany;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
 public class Customer {
 
     @Id
@@ -26,20 +34,9 @@ public class Customer {
         order.setCustomer(this);
     }
 
-    public Customer() {
-    }
-
     public Customer(String username, String email, String address) {
         this.username = username;
         this.email = email;
         this.address = address;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Set<Order> getOrders() {
-        return orders;
     }
 }

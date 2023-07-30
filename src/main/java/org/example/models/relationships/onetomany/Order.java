@@ -1,10 +1,16 @@
 package org.example.models.relationships.onetomany;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity(name = "orders")
 public class Order {
 
@@ -20,19 +26,9 @@ public class Order {
     @ManyToOne
     private Customer customer;
 
-    public Order() {
-    }
-
     public Order(String orderNumber, LocalDate orderTime) {
         this.orderNumber = orderNumber;
         this.orderTime = orderTime;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 }
